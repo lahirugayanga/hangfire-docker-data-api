@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  sql:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    container_name: "sql_server2017"
+
+  data-api:
+    container_name: "data-api"
+    image: ${DOCKER_REGISTRY-}dataapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+  
+  
